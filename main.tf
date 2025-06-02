@@ -9,7 +9,7 @@ terraform {
 
 provider "azurerm" {
   features {}
-  resource_provider_registrations = "enabled" # You’ve pre-registered manually, so this is fine
+ 
 }
 
 # Create Resource Group
