@@ -12,7 +12,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "devops-rg"
+  name     = "devops-rg-new"
   location = "East US"
 }
 
@@ -33,17 +33,20 @@ resource "azurerm_linux_web_app" "app" {
   site_config {
     always_on = false
     
-    application_stack {
+application_stack {
       docker_image     = "asimaftab47/devops-alum-connect"
       docker_image_tag = "latest"
     }
   }
 
+
   app_settings = {
-    WEBSITES_PORT                       = "8000"
+    WEBSITES_PORT                       = "3000"
     DOCKER_REGISTRY_SERVER_URL          = "https://index.docker.io"
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-    MONGO_URI                          = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
+    MONGO_URL                          = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
+    MONGODB_URI                        = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
+    DATABASE_URL                       = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
   }
 }
 
