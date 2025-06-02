@@ -11,11 +11,8 @@ resource "azurerm_service_plan" "plan" {
   name                = "devops-plan"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
-  sku {
-    tier = "Basic"
-    size = "B1"
-  }
-  os_type = "Linux"
+  os_type             = "Linux"
+  sku_name            = "B1"      # ✅ Replace old 'sku' block with this
 }
 
 resource "azurerm_app_service" "app" {
