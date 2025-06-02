@@ -30,14 +30,14 @@ resource "azurerm_linux_web_app" "app" {
   resource_group_name = azurerm_resource_group.rg.name
   service_plan_id     = azurerm_service_plan.plan.id
 
- site_config {
-  application_stack {
-    docker_image_name = "asimaftab47/devops-alum-connect"
-    docker_image_tag  = "latest"
+  site_config {
+    application_stack {
+      docker_image     = "asimaftab47/devops-alum-connect"
+      docker_image_tag = "latest"
+    }
   }
-}
 
   app_settings = {
-    WEBSITES_PORT = "3000" # Change if your app runs on another port
+    WEBSITES_PORT = "3000"
   }
 }
