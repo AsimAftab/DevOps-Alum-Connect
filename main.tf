@@ -31,7 +31,7 @@ resource "azurerm_linux_web_app" "app" {
   service_plan_id     = azurerm_service_plan.plan.id
 
   site_config {
-    always_on = false # Set to true for production
+    always_on = false
     
     application_stack {
       docker_image     = "asimaftab47/devops-alum-connect"
@@ -40,16 +40,11 @@ resource "azurerm_linux_web_app" "app" {
   }
 
   app_settings = {
-    WEBSITES_PORT                = "8000"
-    DOCKER_REGISTRY_SERVER_URL   = "https://index.docker.io"
+    WEBSITES_PORT                       = "8000"
+    DOCKER_REGISTRY_SERVER_URL          = "https://index.docker.io"
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-    
-    # MongoDB Configuration - Replace with your actual connection string
-    MONGO_URL = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
-    # Or if your app uses different env var names:
-    # MONGODB_URI = "mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority"
-    # DATABASE_URL = "mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority"
-  }~
+    MONGO_URL                          = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
+  }
 }
 
 # Output the default hostname
