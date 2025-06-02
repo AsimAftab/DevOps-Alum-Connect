@@ -36,8 +36,8 @@ resource "azurerm_linux_web_app" "app" {
 
   site_config {
     application_stack {
-      docker_image_name = "asimaftab47/devops-alum-connect"
-      docker_image_tag  = "latest"
+      docker_image = "asimaftab47/devops-alum-connect:latest"
+
     }
 
     always_on = true
