@@ -44,7 +44,7 @@ application_stack {
     WEBSITES_PORT                       = "3000"
     DOCKER_REGISTRY_SERVER_URL          = "https://index.docker.io"
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
-    MONGO_URL                          = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
+    MONGO_URI                        = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
     MONGODB_URI                        = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
     DATABASE_URL                       = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
   }
