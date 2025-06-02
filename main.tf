@@ -9,16 +9,13 @@ terraform {
 
 provider "azurerm" {
   features {}
- 
 }
 
-# Create Resource Group
 resource "azurerm_resource_group" "rg" {
   name     = "devops-rg"
   location = "East US"
 }
 
-# Create Linux-based App Service Plan
 resource "azurerm_service_plan" "plan" {
   name                = "devops-plan"
   location            = azurerm_resource_group.rg.location
@@ -27,7 +24,6 @@ resource "azurerm_service_plan" "plan" {
   sku_name            = "B1"
 }
 
-# Create Linux Web App using Docker
 resource "azurerm_linux_web_app" "app" {
   name                = "devops-alum-connect"
   location            = azurerm_resource_group.rg.location
@@ -35,13 +31,15 @@ resource "azurerm_linux_web_app" "app" {
   service_plan_id     = azurerm_service_plan.plan.id
 
   site_config {
-  application_stack {
-    docker_image_name = "asimaftab47/devops-alum-connect"
-    docker_image_tag  = "latest"
+    application_stack {
+      docker_image_name = "asimaftab47/devops-alum-connect"
+      docker_image_tag  = "latest"
+    }
+
+    always_on = true
   }
-  always_on = true
-}
+
   app_settings = {
-    WEBSITES_PORT = "3000" # Update this if your container exposes a different port
+    WEBSITES_PORT = "3000" # Change if your app runs on another port
   }
 }
