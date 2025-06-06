@@ -41,7 +41,7 @@ application_stack {
 
 
   app_settings = {
-    WEBSITES_PORT                       = "3000"
+    WEBSITES_PORT                       = "80"
     DOCKER_REGISTRY_SERVER_URL          = "https://index.docker.io"
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = "false"
     MONGO_URI                        = "mongodb+srv://asimdevcs:asimaftab786@alumconnectcluster.vdhrv.mongodb.net/AlumConnect?retryWrites=true&w=majority&appName=AlumConnectCluster"
